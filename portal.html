@@ -1,0 +1,134 @@
+<html>
+
+<head>
+    <title>4dteam.org -- portal</title>
+    <!-- 新 Bootstrap5 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/css/bootstrap.min.css">
+
+    <!--  popper.min.js 用于弹窗、提示、下拉菜单 -->
+    <script src="https://cdn.staticfile.net/popper.js/2.9.3/umd/popper.min.js"></script>
+
+    <!-- 最新的 Bootstrap5 核心 JavaScript 文件 -->
+    <script src="https://cdn.staticfile.net/twitter-bootstrap/5.1.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <ul class="pagination">
+        <h2>
+            <center>
+                4dteam.org login portal
+            </center>
+        </h2><br>
+        <main>
+            <center><br>
+                <form action="/portal_dashboard-login.php" method="get">
+                    <!--https://www.w3schools.com/tags/att_form_method.asp -- action="/action_page.php" method="get" -->
+                    <div class="mb-3 mt-3">
+                        <label for="name" class="form-label">English all name:</label>
+                        <input type="name" class="form-control" id="name" placeholder="Enter name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pwd" class="form-label">classpin:</label>
+                        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                    </div>
+                    <div class="form-check mb-3">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </form><!-- <script src='https://www.google.com/recaptcha/api.js'></script><div class="g-recaptcha" data-sitekey="6Ldbdg0TAAAAAI7KAf72Q6uagbWzWecTeBWmrCpJ"></div> -->
+            </center><br><br>
+        </main>
+</body>
+
+</html>
+<!-- 
+<script src="https://cdn.staticfile.net/d3/4.13.0/d3.min.js"></script>
+<div class="love"></div>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    overflow: hidden;
+}
+
+.love {
+    width: 450px;
+    height: 450px;
+    position: relative;
+}
+
+.love span {
+    position: absolute;
+    left: 0;
+    color: goldenrod;
+    font-size: 20px;
+    font-family: sans-serif;
+    text-shadow: 0 0 1em white;
+    animation: 
+        x-move 10s ease-in-out infinite alternate,
+        y-move 20s linear infinite;
+    animation-delay: calc(20s / var(--particles) * var(--n) * -1);
+    user-select: none;
+}
+
+.love span:first-child {
+    color: orangered;
+    font-size: 3em;
+    text-shadow: 
+        0 0 0.1em black,
+        0 0 1em white;
+    z-index: 1;
+}
+
+@keyframes x-move {
+    to {
+        left: 450px;
+    }
+}
+
+@keyframes y-move {
+    0% { transform: translateY(180px); }
+    10% { transform: translateY(45px); }
+    15% { transform: translateY(5px); }
+    18% { transform: translateY(0); }
+    20% { transform: translateY(5px); }
+    22% { transform: translateY(35px); }
+    24% { transform: translateY(65px); }
+    25% { transform: translateY(110px); }
+    26% { transform: translateY(65px); }
+    28% { transform: translateY(35px); }
+    30% { transform: translateY(5px); }
+    32% { transform: translateY(0); }
+    35% { transform: translateY(5px); }
+    40% { transform: translateY(45px); }
+    50% { transform: translateY(180px); }
+    71% { transform: translateY(430px); }
+    72.5% { transform: translateY(440px); }
+    75% { transform: translateY(450px); }
+    77.5% { transform: translateY(440px); }
+    79% { transform: translateY(430px); }
+    100% { transform: translateY(180px); }
+}
+</style>
+<script>
+const words = [
+    'givemetocode', 'givemetocode有限責任公司', 'China', 'Hong Kong', 'Macau',
+    'TCPS.edu.hk'];
+
+d3.select('.love')
+    .style('--particles', words.length)
+    .selectAll('span')
+    .data(words)
+    .enter()
+    .append('span')
+    .style('--n', (d, i) => i + 1)
+    .text((d) => d);
+</script>
+https://www.jyshare.com/codedemo/5421/
+-->
