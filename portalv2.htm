@@ -1,0 +1,41 @@
+
+<html>
+
+<head>
+    <title>4dteam.org -- portal (v2 beta)</title>
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css">
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <style>
+        body {
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <ul class="pagination">
+        <h2>
+            <center>
+                4dteam.org login portal
+            </center>
+        </h2><br>
+        <main>
+          <py-script>
+            print("4dteam portal login")
+            login = input("your english all name: ")
+            if login == "Jensen" or login == "Leung Yuen Shun":
+              paswdlogin = input("your password: ")
+              if paswdlogin == "666218" or paswdlogin == "98470808":
+                print("welcome, Jensen")
+                cmd = input("Enter command: ")
+            elif login == "John" or login == "Chan Wa Chun":
+              paswdlogin = input("your password: ")
+              if paswdlogin == "2104":
+                print("welcome, John")
+                cmd = input("Enter command: ")
+            else:
+              print("Invalid login")
+          </py-script>
+        </main>
+</body>
+
+</html>
