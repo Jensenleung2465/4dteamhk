@@ -22,16 +22,34 @@
           <py-script>
             print("4dteam portal login")
             login = input("your english all name: ")
+              jensenpawsd = 666218
+              leungtyenshunpaswd = 98470808
+              johnpaswd = 2104
+              signinised = 0
+              if signinised == 0 :
             if login == "Jensen" or login == "Leung Yuen Shun":
               paswdlogin = input("your password: ")
-              if paswdlogin == "666218" or paswdlogin == "98470808":
+              if paswdlogin == jensenpawsd or paswdlogin == leungtyenshunpaswd :
+                signised = 1
                 print("welcome, Jensen")
                 cmd = input("Enter command: ")
+                if cmd == "quit" == "exit" == "out" :
+                  quit()
+                  signised = 0
+                if cmd == "logout" == "signout" == "Log Out" == "Sign Out" :
+                  signised = 0
+                  quit()
             elif login == "John" or login == "Chan Wa Chun":
+              signised = 1
               paswdlogin = input("your password: ")
-              if paswdlogin == "2104":
+              if paswdlogin == johnpaswd :
                 print("welcome, John")
                 cmd = input("Enter command: ")
+              if cmd == "quit" == "exit" == "out" :
+                  quit()
+                  signised = 0
+                if cmd == "logout" == "signout" == "Log Out" == "Sign Out" :
+                  signised = 0
             else:
               print("Invalid login")
           </py-script>
