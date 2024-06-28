@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>世界萬科TCPS -- 抵鋒會(2023-2024)</title>
+<script>
+// 检测WebRTC IP泄露
+function detectWebRTCLeak() {
+  return new Promise((resolve, reject) => {
+    const RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+    const pc = new RTCPeerConnection({ iceServers: [] });
+    const noop = () => {};
+
+    pc.createDataChannel('');
+    pc.createOffer(pc.setLocalDescription.bind(pc), noop);
+
+    pc.onicecandidate = event => {
+      if (event.candidate) {
+        const ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/
+        const ip_addr = ip_regex.exec(event.candidate.candidate)[1];
+        pc.onicecandidate = noop;
+        resolve(ip_addr !== '127.0.0.1' && ip_addr !== '::1');
+      }
+    };
+  });
+}
+
+// 检测浏览器插件
+function detectBrowserPlugins() {
+  const plugins = [];
+  for (let i = 0; i < navigator.plugins.length; i++) {
+    plugins.push(navigator.plugins[i].name);
+  }
+  return plugins;
+}
+
+// 综合检测VPN使用
+async function isUsingVPN() {
+  const webrtcLeak = await detectWebRTCLeak();
+  const plugins = detectBrowserPlugins();
+  // 根据WebRTC泄露和浏览器插件信息判断是否使用了VPN
+  return webrtcLeak || plugins.some(plugin => /VPN|Proxy/i.test(plugin));
+}
+
+// 页面跳转到about:blank
+function redirectToBlank() {
+  window.location.href = 'about:blank';
+}
+
+// 检测VPN并跳转
+async function checkAndRedirect() {
+  if (await isUsingVPN()) {
+    redirectToBlank();
+  }
+}
+
+// 在页面加载时执行检测和跳转
+window.addEventListener('load', checkAndRedirect);
+
+//2
+
+// 黑名单IP列表
+const blacklistedIPs = ['', '', ''];
+
+// 检测WebRTC IP泄露
+function detectWebRTCLeak() {
+  return new Promise((resolve, reject) => {
+    const RTCPeerConnection = window.RTCPeerConnection || window.mozRTCPeerConnection || window.webkitRTCPeerConnection;
+    const pc = new RTCPeerConnection({ iceServers: [] });
+    const noop = () => {};
+
+    pc.createDataChannel('');
+    pc.createOffer(pc.setLocalDescription.bind(pc), noop);
+
+    pc.onicecandidate = event => {
+      if (event.candidate) {
+        const ip_regex = /([0-9]{1,3}(\.[0-9]{1,3}){3}|[a-f0-9]{1,4}(:[a-f0-9]{1,4}){7})/
+        const ip_addr = ip_regex.exec(event.candidate.candidate)[1];
+        pc.onicecandidate = noop;
+        resolve(blacklistedIPs.includes(ip_addr));
+      }
+    };
+  });
+}
+
+// 检测浏览器插件
+function detectBrowserPlugins() {
+  const plugins = [];
+  for (let i = 0; i < navigator.plugins.length; i++) {
+    plugins.push(navigator.plugins[i].name);
+  }
+  return plugins;
+}
+
+// 综合检测VPN使用
+async function isUsingVPN() {
+  const webrtcLeak = await detectWebRTCLeak();
+  const plugins = detectBrowserPlugins();
+  // 根据WebRTC泄露和浏览器插件信息判断是否使用了VPN
+  return webrtcLeak || plugins.some(plugin => /VPN|Proxy/i.test(plugin));
+}
+
+// 页面跳转到about:blank
+function redirectToBlank() {
+  window.location.href = 'about:blank';
+}
+
+// 检测VPN并跳转
+async function checkAndRedirect() {
+  if (await isUsingVPN()) {
+    redirectToBlank();
+  }
+}
+
+// 在页面加载时执行检测和跳转
+window.addEventListener('load', checkAndRedirect);
+
+//3
+// 从外部 API 获取黑名单电话号码列表
+async function getBlacklistedNumbers() {
+  try {
+    const response = await fetch('https://api.example.com/blacklist');
+    const blacklistedNumbers = await response.json();
+    return blacklistedNumbers;
+  } catch (error) {
+    console.error('Error fetching blacklist:', error);
+    return [];
+  }
+}
+
+// 检查电话号码是否在黑名单中
+async function isNumberBlacklisted(number) {
+  const blacklistedNumbers = await getBlacklistedNumbers();
+  return blacklistedNumbers.includes(number);
+}
+
+// 示例用法
+async function checkAndBlockNumber(number) {
+  if (await isNumberBlacklisted(number)) {
+    console.log(`Number ${number} is blacklisted, blocking call.`);
+    // 在这里添加阻止呼叫的逻辑
+  } else {
+    console.log(`Number ${number} is not blacklisted, allowing call.`);
+    // 在这里添加允许呼叫的逻辑
+  }
+}
+
+// 使用固定的电话号码
+const phoneNumber = '+852 6067 1063';
+
+// 调用示例
+checkAndBlockNumber(phoneNumber);
+</script>
+</head>
+<body>
+  <main>
+    <div name="title" >
+	<Center><h1>抵鋒會</h1></Center>
+    </div>
+    <div name="info" >
+    <p>年度 : 2023-2024</p>
+    <p>班級 : 4D</p>
+    <p>原因 : <a href="https://api.whatsapp.com/send?phone=85260671063&text=fuckyou!" >name 欺負人</a></p>
+    <p>類別 : 組織</p>
+    </div>
+  </main>
+</body>
+</html>
