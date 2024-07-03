@@ -10,16 +10,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Verify User</title>
+    <title>Verify Your Account</title>
 </head>
 <body>
-    <h1>Verify User</h1>
+    <center><h1>Verify Account</h1><p>please wait</p></center>
 
     <%
         // 從 JSON 文件中獲取用戶數據
         JSONParser parser = new JSONParser();
         try {
-            Object obj = parser.parse(new FileReader("users.json"));
+            Object obj = parser.parse(new FileReader("useraccountsql.json"));
             JSONObject userData = (JSONObject) obj;
 
             // 獲取表單提交的用戶名和密碼
