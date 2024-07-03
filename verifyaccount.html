@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>account verify</title>
+<script>
+
+function verifyUser() {
+    // 獲取表單中的用戶名和密碼
+    const username = document.getElementById("name").value;
+    const password = document.getElementById("pswd").value;
+
+    // 從 JSON 文件中獲取用戶數據
+    fetch("useraccountsql.json")
+        .then(response => response.json())
+        .then(userData => {
+            // 進行用戶名和密碼的驗證
+            let isValidUser = false;
+            for (const users of Object.values(userData)) {
+                for (const user of users) {
+                    if (user.name === username && user.pswd === password) {
+                        isValidUser = true;
+                        break;
+                    }
+                }
+            }
+
+            // 根據驗證結果進行跳轉
+            if (isValidUser) {
+                window.location.href = `dashboard.php?username=${encodeURIComponent(username)}`;
+            } else {
+                alert("Invalid username or password");
+            }
+        })
+        .catch(error => {
+            console.error("Error fetching user data:", error);
+            alert("Not This User");
+        });
+}
+</script>
+</head>
+<body>
+</body>
+</html>
