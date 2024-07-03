@@ -1,0 +1,18 @@
+{
+  "account1-1": [
+    { "name":"Jensen leung" , "pswd":"666218" , "access":"root"}, 
+    { "name":"John" , "pswd":"2104" , "access":"admin"}
+    ]
+  "account1-2": [
+    { "name":"Leung Yuen Shun" , "pswd":"666218" , "access":"root"}, 
+    { "name":"Chan Wa Chun" , "pswd":"2104" , "access":"admin"}
+    ]
+  "account2-1": [
+    { "name":"Jensen Leung" , "pswd":"98470808" , "access":"root"}, 
+    { "name":"John" , "pswd":"2104" , "access":"admin"}
+    ]
+  "account2-2": [
+    { "name":"Leung Yuen Shun" , "pswd":"98470808" , "access":"root"}, 
+    { "name":"Chan Wa Chun" , "pswd":"2104" , "access":"admin"}
+    ]
+}
