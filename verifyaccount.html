@@ -1,44 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>account verify</title>
-<script>
-
-function verifyUser() {
-    // 獲取表單中的用戶名和密碼
-    const username = document.getElementById("name").value;
-    const password = document.getElementById("pswd").value;
-
-    // 從 JSON 文件中獲取用戶數據
-    fetch("useraccountsql.json")
-        .then(response => response.json())
-        .then(userData => {
-            // 進行用戶名和密碼的驗證
-            let isValidUser = false;
-            for (const users of Object.values(userData)) {
-                for (const user of users) {
-                    if (user.name === username && user.pswd === password) {
-                        isValidUser = true;
-                        break;
-                    }
-                }
-            }
-
-            // 根據驗證結果進行跳轉
-            if (isValidUser) {
-                window.location.href = `dashboard.php?username=${encodeURIComponent(username)}`;
-            } else {
-                alert("Invalid username or password");
-            }
-        })
-        .catch(error => {
-            console.error("Error fetching user data:", error);
-            alert("Not This User");
-        });
-}
-</script>
+    <title>Verify Your Account</title>
 </head>
 <body>
+    <center><h1>Verifying your account</h1>
+    <p>please wait</p></center>
+
+    <p id="message"></p>
+
+    <script>
+        // 從 URL 參數中獲取用戶名和密碼
+        const urlParams = new URLSearchParams(window.location.search);
+        const username = urlParams.get('name');
+        const password = urlParams.get('pswd');
+
+        if username == "John" or "Chan Wa Chun" {
+            if password == 2104 {
+                document.getElementById('message').textContent = 'Welcome, John';
+                window.location.href = "dashboard-admin.htm?name=Wa Chun";
+            }
+        }
+        if username == "Jensen" or "Leung Yuen Shun" {
+            if password == 666218 or 98470808 {
+                document.getElementById('message').textContent = 'Welcome, Jensen';
+                window.location.href = "dashboard-root.htm?name=Jensen Leung";
+            }
+        }
+    </script>
 </body>
 </html>
